@@ -11,18 +11,10 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package config
 
-import (
-	"github.com/BurntSushi/toml"
-)
+package source
 
-// LoadConfig loads configuration from toml file.
-func LoadConfig(path string) (*string, *toml.MetaData, error) {
-	var conf string
-	metaData, err := toml.DecodeFile(path, &conf)
-	if err != nil {
-		return nil, nil, err
-	}
-	return &conf, &metaData, nil
+//Manager 定义所有RPC的调用者
+type Manager interface {
+	
 }
