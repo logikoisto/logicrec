@@ -11,23 +11,21 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
 package feed
 
 import (
-	"github.com/logikoisto/logicrec/conf"
+	"context"
+	"fmt"
+	"testing"
+
+	"github.com/logikoisto/logicrec/stub/feed"
 )
 
-// Server is server
-type Server struct {
-	conf *conf.Feed
-}
-
-// NewFeed is feed service
-func NewFeed(cfg *conf.Feed) *Server {
-	return &Server{conf: cfg}
-}
-
-// Run is run
-func (f *Server) Run() {
-
+func TestGetFeed(t *testing.T) {
+	req := &feed.FeedRequest{
+		Uid: 1231,
+	}
+	res, err := feedServer.GetFeed(context.Background(), req)
+	fmt.Println(res, err)
 }

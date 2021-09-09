@@ -11,13 +11,27 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package conf
 
-// Feed global conf
-type Feed struct {
+package feed
+
+import (
+	"context"
+
+	"github.com/logikoisto/logicrec/stub/feed"
+)
+
+var feedServer = &ServerMockImpl{}
+
+// ServerMockImpl impl
+type ServerMockImpl struct {
 }
 
-// LoadFeedConf loads configuration from toml file.
-func LoadFeedConf(path string) (*Feed, error) {
-	return &Feed{}, nil
+// GetFeed 具体实现
+func (*ServerMockImpl) GetFeed(context.Context, *feed.FeedRequest) (*feed.FeedResponse, error) {
+	return nil, nil
 }
+
+// TODO
+// 1  实现一个 feed的rpc
+// 2  写一个单元测试
+// 3  完善log 和 err 处理机制

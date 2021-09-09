@@ -11,4 +11,27 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-package source
+
+package server
+
+import (
+	"github.com/logikoisto/logicrec/base/conf"
+	"github.com/zhenghaoz/gorse/base"
+)
+
+// FeedServer is feed server
+type FeedServer struct {
+	conf *conf.FeedConf
+}
+
+// NewFeedServer is feed service
+func NewFeedServer(cfg *conf.FeedConf) *FeedServer {
+	return &FeedServer{conf: cfg}
+}
+
+// Run is run
+func (f *FeedServer) Run() {
+	base.Logger().Info("hello logicrec")
+}
+
+// TODO 写算法逻辑啦

@@ -1,6 +1,12 @@
 syntax = "proto3";
 
-option go_package = "model/feed";
+option go_package = "feed/";
+
+
+service FeedServer {
+  rpc GetFeed (FeedRequest) returns (FeedResponse);
+}
+
 
 message FeedRequest {
   int64 uid = 1; // user id
@@ -9,3 +15,5 @@ message FeedRequest {
 message FeedResponse {
   repeated int64 cids = 1; // container id list
 }
+
+

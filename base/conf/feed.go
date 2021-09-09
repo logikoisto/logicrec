@@ -11,10 +11,13 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+package conf
 
-package source
+// FeedConf global conf
+type FeedConf struct {
+}
 
-//Manager 定义所有RPC的调用者
-type Manager interface {
-	
+// LoadFeedConf loads configuration from toml file.
+func LoadFeedConf(path string) (*FeedConf, error) {
+	return &FeedConf{}, nil
 }
